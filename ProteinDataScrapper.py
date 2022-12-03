@@ -31,8 +31,14 @@ def PDB_CreateFrame():
 
 st.header('3D Structure Database Informations')
 
-col1, col2= st.columns(2)
-if col1.st.button('PDB Database'):
-    PDB_CreateFrame()
-if col2.st.button('yyyyy Database'):
-    PDB_CreateFrame()
+option = st.selectbox(
+     'Select Database',
+     ('Select Database', 'PDB'))
+
+if option == 'PDB':
+    PDB_ShowData()
+
+PDB = st.checkbox('PDB')
+
+if PDB:
+     PDB_ShowData()

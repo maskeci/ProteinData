@@ -22,7 +22,7 @@ def GetData():
     ComputerStructure  = Data[1].text
     return [Structure,ComputerStructure]
 
-def PDB_CreateFrame():
+def PDB_ShowData():
     Data = GetData()
     
     col1, col2= st.columns(2)
@@ -30,15 +30,49 @@ def PDB_CreateFrame():
     col2.metric("Computed Structure Models (CSM)", Data[1])
 
 st.header('3D Structure Database Informations')
+st.sidebar.header('Select Databases')
 
-option = st.selectbox(
-     'Select Database',
-     ('Select Database', 'PDB'))
-
-if option == 'PDB':
+with st.expander('About this app'):
     PDB_ShowData()
 
-PDB = st.checkbox('PDB')
+#Database Selection
+noDatabase = True
 
+PDB = st.sidebar.checkbox('PDB')
 if PDB:
-     PDB_ShowData()
+    noDatabase = False
+    st.write('### PDB')
+    PDB_ShowData()
+     
+Database2 = st.sidebar.checkbox('Database2')
+if Database2:
+    noDatabase = False
+    st.write('### Database2')
+    PDB_ShowData()
+
+Database3 = st.sidebar.checkbox('Database3')
+if Database3:
+    noDatabase = False
+    st.write('### Database3')
+    PDB_ShowData()
+
+Database4 = st.sidebar.checkbox('Database4')
+if Database4:
+    noDatabase = False
+    st.write('### Database4')
+    PDB_ShowData()
+
+Database5 = st.sidebar.checkbox('Database5')
+if Database5:
+    noDatabase = False
+    st.write('### Database5')
+    PDB_ShowData()
+
+Database6 = st.sidebar.checkbox('Database6')
+if Database6:
+    noDatabase = False
+    st.write('### Database6')
+    PDB_ShowData()
+
+if noDatabase:
+    st.write('Select Databases From Sidebar')
